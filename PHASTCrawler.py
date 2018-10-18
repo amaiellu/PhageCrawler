@@ -64,10 +64,20 @@ class PHASTCrawler:
         return
     
 class Bacteria:
-    
+   def __init__(self, name, phagelink):
+        self.name=name
+        self.phagelink=phagelink
+        self.summaryPhage=[]
+        self.summaryLink=''
+        self.detailLink=''
+        self.tailPhages=[] 
         
     
 
 class TailPhage:
    
+    def __init__(self,name): 
+        self.name=name
+        self.sequences=[]
+        self.bactList=[]
         
