@@ -6,6 +6,10 @@ Created on Oct 29, 2018
 from lxml import html
 import requests
 import pandas as pd
+from bs4 import BeautifulSoup
+import numpy as np
+from collections import Counter
+
 
 
 
@@ -43,7 +47,12 @@ class PHASTCrawler:
                 
         return
     
-    
+    def getSoup(self,link):
+        start=requests.get(link)
+        tree=html.fromstring(start.text)
+        soup=BeautifulSoup(html.tostring(tree))
+        
+        return soup
     
     def get_tail_phages(self,bacteria):
         soup=self.getSoup(bacteria.detailLink)
