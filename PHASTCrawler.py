@@ -129,3 +129,9 @@ class TailPhage:
         self.sequences=[]
         self.bactList=[]
         
+class Sequence:
+    def __init__(self,sequence,type,bacteria): 
+        self.sequence=sequence
+        self.type=type
+        self.bacteria=bacteria
+        
