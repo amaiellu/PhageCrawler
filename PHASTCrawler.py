@@ -108,9 +108,31 @@ class PHASTCrawler:
     
     
     def generateStats(self,phagelist):
+        # what stats do I need?
+        # for each phage, number of bacteria detected
+        phagenames=[phage.name for phage in phagelist]
+        allproteinsheet=pd.DataFrame(index=np.arange(0,len(phagenames)),columns=['Name','Bacteria List'])
+        allproteinsheet['Name']=pd.Series(phagenames)
+       
+        
+        for phage in phagelist:
+            name=phage.name
+            bactlist=phage.bactList
+            globalcount=len(bactlist.unique())
+            sequences=phage.sequences
+            phagesequencesheet=pd.DataFrame(index=np.arange(0,len(sequences)), columns=['Protein','Bacteria','Sequence'])
+            proteintags=[sequence.proteintag for sequence in sequences]
+            counts=Counter(proteintags).values()
+            
+            for sequence in sequences: 
+                proteintags.append(sequence.proteintag)
+                
+            
+        # for each phage, number of bacteria for each particular 'keyword' 
+        # one sheet to list each sequence under specific prtein tag
+        # 
         
         return
-    
 class Bacteria:
    def __init__(self, name, phagelink):
         self.name=name
